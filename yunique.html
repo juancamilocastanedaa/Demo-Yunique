@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa YNS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .product .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .quantity {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity label {
+            margin-right: 10px;
+        }
+
+        .quantity input {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .create-customer {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .create-customer:hover {
+            background-color: #0056b3;
+        }
+        button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 24px;
+            width: 303px;
+            height: 54px;
+            background: #632DBB;
+            border-radius: 4px;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: 'Inter', 'Arial';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            text-align: center;
+
+            /* Neutral/W */
+
+            color: #FEFEFE;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Yunique Fashion Store</h1>
+    <div class="container">
+        <div class="product">
+            <!-- Producto 1 -->
+            <h2>Blusa Cuello V Manga Corta</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244415/10009298-102-2.jpg?v=638506212647670000" alt="Blusa">
+            <p>Blusa manga corta cuello camisero con corte almilla y bolsillo de parche</p>
+            <p class="price">$83,930 COP</p>
+            <div class="quantity">
+                <label for="quantity1">Cantidad:</label>
+                <input type="number" id="quantity1" name="quantity1" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 2 -->
+            <h2>Pantalon Tiro Alto Bota Skinny</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244720/15005849-700-1.jpg?v=638506214243770000" alt="Pantalon">
+            <p>Pantalon bota skinny</p>
+            <p class="price">$104,930 COP</p>
+            <div class="quantity">
+                <label for="quantity2">Cantidad:</label>
+                <input type="number" id="quantity2" name="quantity2" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 3 -->
+            <h2>Jean Wonder Tiro Medio Bota Flare</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244758/15005749-464-1.jpg?v=638507137752700000" alt="Jean">
+            <p>Los vaqueros mas iconicos de FDS con efecto push up y una combinacion de diseno tecnico con materias primas comodas y una elasticidad adecuada para realzar asi sus curvas</p>
+            <p class="price">$125,930 COP</p>
+            <div class="quantity">
+                <label for="quantity3">Cantidad:</label>
+                <input type="number" id="quantity3" name="quantity3" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 4 -->
+            <h2>Blusa Cuello Neru Manga Corta</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244465/10009433-102-1.jpg?v=638506212876530000" alt="Blusa">
+            <p>Blusa manga con recogido en mangas y hombros, con cuello neru y punos con botones</p>
+            <p class="price">$90,930 COP</p>
+            <div class="quantity">
+                <label for="quantity4">Cantidad:</label>
+                <input type="number" id="quantity4" name="quantity4" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 5 -->
+            <h2>Blusa Cuello Camisero Manga Larga</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244310/10009488-102-1.jpg?v=638504303805130000" alt="Blusa">
+            <p>Camisa manga larga delantero con pechera espalda con corte para entalle punos y cuellos fusionados</p>
+            <p class="price">$83,930 COP</p>
+            <div class="quantity">
+                <label for="quantity5">Cantidad:</label>
+                <input type="number" id="quantity5" name="quantity5" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 6 -->
+            <h2>Jean Muse Tiro Medio Bota Recta</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244358/15005742-464-1.jpg?v=638504304105500000" alt="Jean">
+            <p>Estos vaqueros 5 bolsillos estilo vintage de pretina super alta con pierna ajustada del tejido elastico con tecnologia holding power que permite un efecto de realce sin exagerar las formas</p>
+            <p class="price">$118,930 COP</p>
+            <div class="quantity">
+                <label for="quantity6">Cantidad:</label>
+                <input type="number" id="quantity6" name="quantity6" min="0" value="0">
+            </div>
+        </div>
+        
+        <div class="product">
+            <!-- Producto 7 -->
+            <h2>Blusa Cuello Ojal Manga Corta</h2>
+            <img src="https://fdscol.vtexassets.com/arquivos/ids/244034/10009464-393-1.jpg?v=638503485556100000" alt="Blusa">
+            <p>Blusa manga ranglan con lazo para recogido en escote y elastico en ruedo</p>
+            <p class="price">$76,930 COP</p>
+            <div class="quantity">
+                <label for="quantity7">Cantidad:</label>
+                <input type="number" id="quantity7" name="quantity7" min="0" value="0">
+            </div>
+        </div>
+            
+    </div>
+    
+    <p id="total">Total: 0 unidades</p>
+     <!-- Default ORDERS ID
+    <p id="orderId">Order ID: <span></span></p>
+    <p id="orderId2">Order ID2: <span></span></p>
+-->
+    
+    
+    <button class="create-order">Crear Orden</button>
+
+    <script>
+        const quantities = document.querySelectorAll('.quantity input');
+        const totalElement = document.getElementById('total');
+        const prices = document.querySelectorAll('.price');
+        const orderIdElement = document.querySelector('#orderId span');
+        const orderIdElement2 = document.querySelector('#orderId2 span');
+
+        function generateOrderId() {
+            return Math.floor(1000000000 + Math.random() * 9000000000);
+        }
+
+        function updateTotal() {
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            quantities.forEach((input, index) => {
+                const quantity = parseInt(input.value);
+                totalQuantity += quantity;
+                totalPrice += quantity * parseFloat(prices[index].textContent.replace('$', '').replace(',', ''));
+            });
+
+            totalElement.textContent = `Total: $${totalPrice.toFixed(2)} (${totalQuantity} prendas)`;
+        }
+
+        quantities.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+
+        function createOrder() {
+            console.log('Order ID2:');
+            
+            const orderId2 = generateOrderId();
+            window.location.href = `/crear-cliente?orderId2=${orderId2}`;
+            console.log('Order ID2A:', orderId2);
+            orderIdElement2.textContent = orderId2;
+            //localStorage.setItem('orderId2', orderId2);
+            console.log('Order ID2B:', orderId2);
+            document.getElementById('order-id').textContent = `Order ID: ${orderId2}`;
+            console.log('Order ID2C:', orderId2);
+             
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            orderIdElement.textContent = generateOrderId();
+        });
+
+        //document.querySelector('.create-order').addEventListener('click', createOrder);
+        
+        document.querySelector('.create-order').addEventListener('click',createOrder);
+        
+
+
+        quantities.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+
+        updateTotal(); // Calcular total inicial
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cliente</title>
+    <!-- Default fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 50px;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        form {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            padding: 1%;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: white;
+            margin-bottom: 10px;
+            border-radius: 25px; /* Agregar bordes redondeados */ 
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            border: 1px solid #ccc; 
+            border-radius: 10px; /* Agregar bordes redondeados */ 
+        }
+
+        button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 24px;
+            width: 303px;
+            height: 54px;
+            background: #632DBB;
+            border-radius: 4px;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: 'Inter', 'Arial';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            text-align: center;
+
+            /* Neutral/W */
+
+            color: #FEFEFE;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Cliente</h1>
+        <form id="crearClienteForm">
+            <label for="merchant_customer_id">ID del cliente en el comercio externo:</label>
+            <input type="text" id="merchant_customer_id" name="merchant_customer_id" required>
+            <label for="first_name">Primer Nombre:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <label for="last_name">Apellido:</label>
+            <input type="text" id="last_name" name="last_name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <input type="hidden" id="orderId2" name="orderId2" value="">
+            <!-- Otros campos como género, fecha de nacimiento, nacionalidad, etc. -->
+            <button type="submit">Crear Cliente</button>
+        </form>
+        
+    </div>
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const orderId2 = params.get('orderId2');
+            document.getElementById('orderId2').value = orderId2;
+            merchant_order_id = orderId2;
+            console.log('Order ID2A:', orderId2);
+            console.log('merchant_odrder_id:', merchant_order_id);
+        });
+        document.getElementById('crearClienteForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma convencional
+            const formData = new FormData(this); // Obtiene los datos del formulario
+            const customerData = Object.fromEntries(formData.entries()); // Convierte los datos a un objeto
+            try {
+                const response = await fetch('/crear-cliente', {
+                    method: 'POST',
+                    headers: {
+                        'public-api-key': 'sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=',
+                        'private-secret-key': 'gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(customerData),
+                });
+                
+                const orderId2 = document.getElementById('orderId2').value;
+                console.log('Order-Merchan:', merchant_order_id); // Muestra el ID del cliente en la consola
+                const responseData = await response.json();
+                console.log('ID del cliente:', responseData.id); // Muestra el ID del cliente en la consola
+                CUSTOMER_ID = responseData.customer_id;                
+                window.location.href = '/'; // Redirigir al usuario a la página principal
+            } catch (error) {
+                console.error('Error al crear el cliente:', error);
+                // Aquí podrías mostrar un mensaje de error al usuario
+            }
+        });
+        document.getElementById('realizarCompra').addEventListener('click', () => {
+            window.location.href = '/'; // Redirigir al usuario a la página principal
+        });
+    </script>
+</body>
+</html>

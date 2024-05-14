@@ -1,0 +1,155 @@
+#### recuperar informacion
+GET http://localhost:1234/movies
+
+
+#### Get Customer by merachant id id
+GET https://api-sandbox.y.uno/v1/customers?merchant_customer_id=1715298654
+ Content-Type: application/json
+public-api-key: sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=
+private-secret-key: gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=
+
+
+ 
+#### Get Customer id
+GET https://api-sandbox.y.uno/v1/customers/86db7d88-0edd-4de3-b835-0c6f1c8799b9
+Content-Type: application/json
+public-api-key: sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=
+private-secret-key: gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=
+
+
+
+#### Crear customer
+POST https://api-sandbox.y.uno:443/v1/customers
+Content-Type: application/json
+public-api-key: sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=
+private-secret-key: gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=
+
+{
+    "merchant_customer_id": "800.153.993",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@gmail.com",
+    "country": "CO"
+}
+
+
+#### Crear checkout session
+POST https://api-sandbox.y.uno/v1/checkout/sessions
+Content-Type: application/json
+public-api-key: sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=
+private-secret-key: gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=
+
+
+{
+    // https://docs.y.uno/reference/create-checkout-session
+    "account_id": "01fbdedb-f962-4409-8ef6-39210fb7e8cf",
+    "merchant_order_id": "1715298654",
+    "payment_description": "Test",
+    "callback_url": "http://www.google.com/",
+    "country": "CO",
+    "customer_id": "cfdd3cf7-44a0-4fe3-9fbe-714fcaf6407f",
+    "amount": {
+        "currency": "COP",
+        "value": 15500
+    }
+}
+
+#### Crear checkout session
+POST https://api-sandbox.y.uno/v1/checkout/sessions
+Content-Type: application/json
+public-api-key: sandbox_gAAAAABmKcmr3UjfpzqFzUObnweC5dt_0zG54sDIj1TDpr8CXyxy4-NynICK6ZhPfS5btqx7ZhLVSabju4MNHi0qoZRmsBu94haKn5t2ls9xDqgiE7VFwqcIpAuNp5HTNhtLOXQN9gpDe1bNW9cwyZuZvUDisMqAh4t-giK2wowPUO7SjVeCrqc=
+private-secret-key: gAAAAABmKcmrltPVWq9NAgNHiBjXQ8a1YNg3WLidieVhJ-3nBdIzngYf3KAAd5p0n7kuJprGVlK-54ORUah8wIClo8yz_OEHoecPAslu0nVcD0LLSoaTCCJeeyrrgYYp4-O-fTpGXZNkmY5hkaEtB8KVaEsv24Rx4s7M2af-n6hDDaY_bgfEaes=
+{
+    // https://docs.y.uno/reference/create-payment
+    "description": "Test Payment",
+    "account_id": "01fbdedb-f962-4409-8ef6-39210fb7e8cf",
+    "merchant_order_id": "1715298654",
+    "country": "CO",
+    "additional_data": {
+        "airline": {
+            "legs": [
+                {
+                    "arrival_airport": "AMS",
+                    "base_fare": 200,
+                    "base_fare_currency": "BRL",
+                    "carrier_code": "KL",
+                    "departure_airport": "EZE",
+                    "departure_airport_timezone": "-03:00",
+                    "departure_datetime": "2014-05-12 13:05:00",
+                    "fare_basis_code": "HL7LNR",
+                    "fare_class_code": "FR",
+                    "flight_number": "842",
+                    "stopover_code": "s"
+                }
+            ],
+            "passengers": [
+                {
+                    "country": "st",
+                    "date_of_birth": "stringstri",
+                    "document": {
+                        "document_number": "351.040.753-97",
+                        "document_type": "CPF"
+                    },
+                    "first_name": "string",
+                    "last_name": "string",
+                    "loyalty_number": "string",
+                    "loyalty_tier": "strin",
+                    "middle_name": "string",
+                    "nationality": "st",
+                    "type": "s"
+                }
+            ],
+            "pnr": "1P-2UUGJW",
+            "ticket": {
+                "ticket_number": "123456",
+                "restricted": false,
+                "total_fare_amount": 80.00,
+                "total_tax_amount": 22.00,
+                "total_fee_amount": 14.00,
+                "issue": null,
+                "e_ticket": false
+            }
+        },
+        "order": {
+            "fee_amount": 40.5,
+            "items": [
+                {
+                    "brand": "XYZ",
+                    "category": "Clothes",
+                    "id": "123AD",
+                    "manufacture_part_number": "XYZ123456",
+                    "name": "Skirt",
+                    "quantity": 3,
+                    "sku_code": "8765432109",
+                    "unit_amount": 20
+                }
+            ],
+            "shipping_amount": 10.35
+        }
+    },
+    "amount": {
+        "currency": "COP",
+        "value": 15000
+    },
+    "checkout": {
+        "session": "fbb23f53-ba31-42e9-a90b-0125ca262778"
+    },
+    "customer_payer": {
+        "id": "cfdd3cf7-44a0-4fe3-9fbe-714fcaf6407f",
+        "browser_info": {
+            "accept_header": "string",
+            "color_depth": "string",
+            "javascript_enabled": true,
+            "language": "string",
+            "screen_height": "string",
+            "screen_width": "string",
+            "user_agent": "string"
+        },
+        "device_fingerprint": "hi88287gbd8d7d782ge....",
+        "ip_address": "192.168.123.167"
+    },
+    "payment_method": {
+        // Use Yuno's SDK to Get the one time token to process the payment: https://docs.y.uno/docs/web-sdk-integrations
+        "token": {{onetime_token}}
+    }
+}
